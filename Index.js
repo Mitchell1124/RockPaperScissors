@@ -34,19 +34,21 @@ function getComputerChoice() {
 
 //plays a round of the game
  function playRound(playerChoice, computerChoice) {
-    console.log(playerChoice === computerChoice)
-    console.log(playerChoice + " " + computerChoice)
 
     if(playerChoice === computerChoice) {
         console.log("The choises were the same! Play again!")
     } else if(playerChoice === "rock" && computerChoice === "scissors") {
         console.log('You won!')
+        score += 1
     } else if(playerChoice === "paper" && computerChoice === "rock") {
         console.log('You won!')
+        score += 1
     } else if(playerChoice === 'scissors' && computerChoice === 'paper') {
         console.log('You won!')
+        score += 1
     } else {
         console.log("The computer won! Try again!")
+        computerScore += 1
     }
 
  }
@@ -55,7 +57,13 @@ function getComputerChoice() {
 
  for(i = 0; i < 5; i++) {
     playRound(playerChoice, getComputerChoice())
+    
 
+    if(score > computerScore) {
+        console.log("You Won! With a score of " + score + " to " + computerScore)
+    } else {
+        console.log("You Lost! With a score of " + computerScore+ " to " + score)
+    }
 
  }
 
